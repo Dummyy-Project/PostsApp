@@ -1,6 +1,15 @@
-<% @post.each do |post| %>
-    <h2><%= post.title %></h2>
-    <div><%= truncate(post.body, :length => 35)%></div>
-    <br>
-    <%= link_to "Read Post", post%>
-<% end %>
+<div class="container mb-4">
+    <% @post.each do |post| %>
+        <br>
+        <%= link_to post do%>
+            <div class="card-deck">
+                <div class="card border-primary mb-3">
+                    <div class="card-body">
+                        <h5 class='card-title mb-1 text-dark'><%= post.title %></h5>
+                        <p class='card-description mb-0 text-dark'><%= post.body%></p>
+                    </div>
+                </div>
+            </div>
+        <% end %>
+    <%end%>
+</div>
