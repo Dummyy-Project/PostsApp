@@ -6,7 +6,7 @@
                 <div class="card border-primary mb-3">
                     <div class="card-body">
                         <h5 class='card-title mb-1 text-dark'><%= post.title %></h5>
-                        <p class='card-description mb-0 text-dark'><%= post.body%></p>
+                        <p class='card-description mb-0 text-dark'><%= truncate(post.body, :length => 145)%></p>
                     </div>
                 </div>
             </div>
