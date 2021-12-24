@@ -1,9 +1,13 @@
 <div class="container">
-    <h1><%= @post.title%></h1>
-    <div>
-    <%=@post.body%>
-    </div>
     <br>
-    <%= link_to "Edit post", edit_post_path(@post), class:"btn btn-primary btn-sm"%>
-    <%= link_to "Delete", post_path(@post), class:"btn btn-danger btn-sm", method: :delete, data: {confirm: "Are you sure?"} %>
+    <%=turbo_frame_tag @post do%>
+        <%= turbo_stream_from dom_id(@post) %>
+            <h1><%= @post.title%></h1>
+            <div>
+            <%=@post.body%>
+            </div>
+            <br>
+            <%= link_to "Edit post", edit_post_path(@post), class:"btn btn-primary btn-sm"%>
+            <%= link_to "Delete", post_path(@post), class:"btn btn-danger btn-sm", method: :delete, data: {confirm: "Are you sure?"} %>
+        <%end%>
 </div>
